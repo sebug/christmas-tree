@@ -1,27 +1,24 @@
-const baubleProbability = 0.3;
+const bp = 0.3;
+const bauble = () =>
+    Math.random() < bp;
+const tile = () =>
+    bauble() ? '*' : 'x';
 
-const isBauble = () =>
-    Math.random() < 0.3;
-
-const randomTile = () =>
-    isBauble() ? '*' : 'x';
-
-const rowWithBaubles = (length) => {
+const rowWithBaubles = (l) => {
     let res = '';
-    for (let i = 0; i < length; i += 1) {
-        res += randomTile();
+    for (let i = 0; i < l; i += 1) {
+        res += tile();
     }
     return res;
 };
 
-const tree = (maxBranchLength) => {
-    let rows = ['+'.padStart(maxBranchLength + 1)];
+function* tree(maxBranchLength) {
+    yield '+'.padStart(maxBranchLength + 1);
     for (let i = 1; i <= maxBranchLength; i += 1) {
-        rows.push(rowWithBaubles(i).padStart(maxBranchLength) +
-            rowWithBaubles(i + 1));
+        yield rowWithBaubles(i).padStart(maxBranchLength) +
+            rowWithBaubles(i + 1);
     }
-    rows.push('|||'.padStart(maxBranchLength + 2));
-    return rows;
+    yield '|||'.padStart(maxBranchLength + 2);
 };
 
-console.log(tree(8).join('\n'));
+console.log(Array.from(tree(8)).join('\n'));
