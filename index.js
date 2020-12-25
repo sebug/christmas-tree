@@ -1,1 +1,1 @@
-console.log(((ml, r, ps) => [ps('+', ml + 1)].concat(Array(ml).fill(0).map((e,i) => ps(r(i),ml) + r(i + 1))).concat([ps('|||', ml + 2)]))(8, l => Array(l).fill(0).map(() => Math.random() < 0.3 ? '*' : 'x').join(''), (r, l) => r.padStart(l)).join('\n'));
+console.log(((ml, r, ps) => [ps('+', ml + 1)].concat(Array(ml).fill(0).map((e,i) => ps(r(i),ml) + r(i + 1))).concat([ps('|||', ml + 2)]))(8, l => Array(l).fill('x').map(x => Math.random() < 0.3 ? '*' : x).join(''), (r, l) => r.padStart(l)).join('\n'));
