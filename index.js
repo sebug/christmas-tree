@@ -1,13 +1,1 @@
-console.log(Array.from(function* (ml, r, ps) {
-    yield ps('+', ml + 1);
-    for (let i = 1; i <= ml; i += 1) {
-        yield ps(r(i),ml) + r(i + 1);
-    }
-    yield ps('|||', ml + 2);
-}(8, l => {
-    let rt = '';
-    for (let i = 0; i < l; i += 1) {
-        rt += Math.random() < 0.3 ? '*' : 'x';
-    }
-    return rt;
-}, (r, l) => r.padStart(l))).join('\n'));
+console.log(((ml, r, ps) => [ps('+', ml + 1)].concat(Array(ml).fill(0).map((e,i) => ps(r(i),ml) + r(i + 1))).concat([ps('|||', ml + 2)]))(8, l => Array(l).fill(0).map(() => Math.random() < 0.3 ? '*' : 'x').join(''), (r, l) => r.padStart(l)).join('\n'));
