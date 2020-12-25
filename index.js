@@ -1,24 +1,15 @@
-const bp = 0.3;
-const bauble = () =>
-    Math.random() < bp;
-const tile = () =>
-    bauble() ? '*' : 'x';
-
-const rowWithBaubles = (l) => {
-    let res = '';
+const r = l => {
+    let rt = '';
     for (let i = 0; i < l; i += 1) {
-        res += tile();
+        rt += Math.random() < 0.3 ? '*' : 'x';
     }
-    return res;
+    return rt;
 };
-
-function* tree(maxBranchLength) {
-    yield '+'.padStart(maxBranchLength + 1);
-    for (let i = 1; i <= maxBranchLength; i += 1) {
-        yield rowWithBaubles(i).padStart(maxBranchLength) +
-            rowWithBaubles(i + 1);
+function* t(ml) {
+    yield '+'.padStart(ml + 1);
+    for (let i = 1; i <= ml; i += 1) {
+        yield r(i).padStart(ml) + r(i + 1);
     }
-    yield '|||'.padStart(maxBranchLength + 2);
+    yield '|||'.padStart(ml + 2);
 };
-
-console.log(Array.from(tree(8)).join('\n'));
+console.log(Array.from(t(8)).join('\n'));
