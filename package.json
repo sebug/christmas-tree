@@ -1,0 +1,19 @@
+{
+  "name": "christmas-tree",
+  "version": "1.0.0",
+  "description": "My first NodeJS on Apple Silicon project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebug/christmas-tree.git"
+  },
+  "author": "Sebastian Gfeller",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sebug/christmas-tree/issues"
+  },
+  "homepage": "https://github.com/sebug/christmas-tree#readme"
+}
