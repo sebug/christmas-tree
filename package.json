@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/sebug/christmas-tree/issues"
   },
-  "homepage": "https://github.com/sebug/christmas-tree#readme"
+  "homepage": "https://github.com/sebug/christmas-tree#readme",
+  "type": "module"
 }
